@@ -2,6 +2,7 @@ package com.sky.controller.admin;
 
 import com.sky.constant.JwtClaimsConstant;
 import com.sky.dto.EmployeeDTO;
+import com.sky.dto.EmployeeEditDTO;
 import com.sky.dto.EmployeeLoginDTO;
 import com.sky.dto.EmployeePageQueryDTO;
 import com.sky.entity.Employee;
@@ -123,6 +124,14 @@ public class EmployeeController {
     @PutMapping
     public Result update(@RequestBody EmployeeDTO employeeDTO) {
         employeeService.update(employeeDTO);
+        return Result.success();
+    }
+
+    @PutMapping("/editPassword")
+    @ApiOperation("修改密码")
+    //TODO:前端代码还没有完成
+    public Result editPassword(@RequestBody EmployeeEditDTO employeeEditDTO) {
+        employeeService.editPassword(employeeEditDTO);
         return Result.success();
     }
 
